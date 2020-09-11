@@ -1,3 +1,8 @@
 set hidden
 map D delete
 map t toggle
+map <enter> shell
+set icons true
+set period 1
+
+set shell zsh
