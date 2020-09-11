@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $resize-value 10 px
+
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -78,10 +80,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+backslash split h
+bindsym $mod+grave split h
 
 # split in vertical orientation
-bindsym $mod+period split v
+bindsym $mod+Tab split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -154,16 +156,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width $resize-value
+        bindsym k resize grow height $resize-value
+        bindsym l resize shrink height $resize-value
+        bindsym semicolon resize grow width $resize-value
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize grow width $resize-value
+        bindsym Down resize shrink height $resize-value
+        bindsym Up resize grow height $resize-value
+        bindsym Right resize shrink width $resize-value
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
