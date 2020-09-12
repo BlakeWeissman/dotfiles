@@ -33,3 +33,5 @@ alias lf='
   fi
 '
 alias df='dotfiles'
+
+source ~/.bin/zsh/zsh-syntax-highlighting.plugin.zsh
