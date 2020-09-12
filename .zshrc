@@ -32,3 +32,4 @@ alias lf='
     fi
   fi
 '
+alias df='dotfiles'
