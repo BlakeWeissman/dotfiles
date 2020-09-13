@@ -1,0 +1,48 @@
+general {
+  colors = false
+}
+
+order += "disk /"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "memory"
+order += "wireless _first_"
+order += "volume master"
+order += "battery all"
+order += "time"
+
+disk "/" {
+    #󰋊
+    format = " %used/%total"
+    prefix_type = "decimal"
+}
+
+cpu_temperature 0 {
+  format = " %degrees°C" 
+}
+
+cpu_usage {
+  format = " %usage"
+}
+
+memory {
+  format = " %used/%total"
+}
+
+wireless _first_ {
+  format_up = "󰖩%quality (%essid)"
+  format_down = "󰖪"
+}
+
+volume master {
+  format = " %volume" 
+  format_muted = " %volume" 
+}
+
+battery all {
+  format = "%remaining "#%emptytime %consumption"
+}
+
+time {
+  format = "  %m/%d/%Y(%a) |  %I:%M:%S%p" 
+}
