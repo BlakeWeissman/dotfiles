@@ -36,3 +36,4 @@ alias df='dotfiles'
 alias vim='nvim'
 
 source ~/.bin/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source ~/.bin/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh
