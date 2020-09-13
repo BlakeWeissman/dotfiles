@@ -33,5 +33,6 @@ alias lf='
   fi
 '
 alias df='dotfiles'
+alias vim='nvim'
 
 source ~/.bin/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
