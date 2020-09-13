@@ -44,5 +44,5 @@ battery all {
 }
 
 time {
-  format = "  %m/%d/%Y(%a) |  %I:%M:%S%p" 
+  format = "  %m/%d/%Y(%a)  %I:%M:%S%p" 
 }
