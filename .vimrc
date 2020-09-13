@@ -9,4 +9,6 @@ set softtabstop=2   " Sets the number of columns for a TAB
 
 set expandtab       " Expand TABs to spaces
 
+set clipboard=unnamedplus
+
 syntax on
