@@ -1,6 +1,7 @@
 set hidden
 map D delete
 map t toggle
+map T trash
 map <enter> shell
 cmap <up>   cmd-history-prev
 cmap <down> cmd-history-next
@@ -8,6 +9,7 @@ cmap <down> cmd-history-next
 set icons true
 set period 1
 set wrapscroll true
+set color256 true
 
 # TODO: Add for other file types
 cmd open ${{
@@ -22,5 +24,7 @@ cmd open ${{
         	*) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;	    
 	esac
 }}
+
+cmd trash %trash-put $fx
 
 # set shell $SHELL
