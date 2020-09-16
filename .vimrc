@@ -1,8 +1,11 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'https://github.com/ap/vim-css-color'
+Plug 'dylanaraps/wal.vim'
 
 call plug#end()
+
+colorscheme wal
 
 set tabstop=2       " The width of a TAB is set to 4.
                     " Still it is a \t. It is just that
