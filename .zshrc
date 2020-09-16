@@ -17,6 +17,10 @@ compinit
 # Allow arrow controls for completion
 zstyle ':completion:*' menu select
 
+# Apply current pywal theme to new terminals and ttys
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+
 # Aliases
 alias dotfiles='/usr/bin/git --git-dir=/home/blake/.dotfiles/ --work-tree=/home/blake'
 alias lf='
