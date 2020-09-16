@@ -35,11 +35,11 @@ set_from_resource $color15       color15 #000000
 #set $darkblack   #1d2021
 #set $transparent #00000000
 
+
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $color6     $color3     $color7     $color1     $color3
-client.focused_inactive $color8     $color5     $color8     $color0     $color5
-#client.focused_inactive $color6     $color6     $color0     $color0     $color6
-client.unfocused        $color8     $color5     $color8     $color0     $color5
+client.focused          $color2     $color1     $color7     $color3     $color1
+client.focused_inactive $color8     $color5     $color7     $color0     $color5
+client.unfocused        $color8     $color5     $color7     $color0     $color5
 client.urgent           $color2     $color1     $color7     $color0     $color1
 #client.placeholder      $color8     $color8     $color7     $color8     $color8
 #client.background       $color7
@@ -240,8 +240,8 @@ bar {
           background $color0
           statusline $color7
           #                  border             background         text
-          focused_workspace  $color6            $color3            $color7
+          focused_workspace  $color2            $color1            $color7
           inactive_workspace $color0            $color0            $color8
-          urgent_workspace   $color2            $color1            $color7
+          urgent_workspace   $color6            $color3            $color7
         }
 }
