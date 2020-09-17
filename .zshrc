@@ -14,6 +14,12 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Include hidden files in autocomplete
+_comp_options+=(globdots)		
+
+# Automatically cd into typed directory.
+setopt autocd		
+
 # Allow arrow controls for completion
 zstyle ':completion:*' menu select
 
