@@ -8,7 +8,7 @@ order += "cpu_usage"
 order += "memory"
 order += "wireless _first_"
 order += "volume master"
-order += "battery all"
+order += "battery 0"
 order += "time"
 
 disk "/" {
@@ -39,8 +39,13 @@ volume master {
   format_muted = " %volume" 
 }
 
-battery all {
-  format = "%remaining "#%emptytime %consumption"
+battery 0 {
+  format = "%status %percentage"
+  path = "/sys/class/power_supply/BAT1/uevent"
+  status_chr = ""
+  status_bat = ""
+  status_unk = ""
+  status_full = ""
 }
 
 time {
