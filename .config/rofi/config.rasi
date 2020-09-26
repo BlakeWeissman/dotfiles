@@ -1,6 +1,6 @@
 configuration {
 /*      modi: "window,run,ssh";*/
-/*      width: 50;*/
+      width: 25;
 /*      lines: 15;*/
 /*      columns: 1;*/
 /*      font: "mono 12";*/
