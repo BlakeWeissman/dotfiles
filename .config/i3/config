@@ -75,7 +75,7 @@ font pango:monospace 8
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-exec_always alttab -d 2 -pk Left -nk Right -bg $(awk 'NR==1' ~/.cache/wal/colors) -fg $(awk 'NR==7' ~/.cache/wal/colors) -frame $(awk 'NR==3' ~/.cache/wal/colors)
+exec_always alttabrice 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
