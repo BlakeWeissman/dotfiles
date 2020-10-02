@@ -44,9 +44,8 @@ alias lf='
 '
 alias df='dotfiles'
 alias vim='nvim'
-alias alttabrice='alttab -d 2 -pk Left -nk Right -bg $(awk 'NR==1' ~/.cache/wal/colors) -fg $(awk 'NR==7' ~/.cache/wal/colors) -frame $(awk 'NR==3' ~/.cache/wal/colors)'
+alias alttabrice='alttab -d 2 -pk Left -nk Right -bg $(awk 'NR==1' ~/.cache/wal/colors) -fg $(awk 'NR==8' ~/.cache/wal/colors) -frame $(awk 'NR==3' ~/.cache/wal/colors)'
 
-# You can create a function for this in your shellrc (.bashrc, .zshrc).
 bg() {
   wal -n -i "$@"
   xwallpaper --zoom "$(< "${HOME}/.cache/wal/wal")"
@@ -54,5 +53,19 @@ bg() {
   alttabrice &
 }
 
+bgl() {
+  wal -n -i "$@" -l
+  xwallpaper --zoom "$(< "${HOME}/.cache/wal/wal")"
+  killall -q alttab
+  alttabrice &
+}
+
+lastbg() {
+  wal -R -n
+  xwallpaper --zoom "$(< "${HOME}/.cache/wal/wal")"
+}
+
 source ~/.bin/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.bin/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh
+
+. ~/zshpath
