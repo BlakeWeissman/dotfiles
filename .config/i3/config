@@ -102,8 +102,9 @@ bindsym $mod+q kill
 #bindsym $mod+m move scratchpad
 #bindsym $mod+Shift+m scratchpad show; floating toggle
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec rofi -show drun -show-icons #dmenu_run -c -l 20 #rofi -show run #dmenu_run
+# start rofi (a program launcher)
+bindsym $mod+space exec rofi -show drun -show-icons
+bindsym $mod+Shift+space exec rofi -show run
 #bindsym $mod+space exec dmenu_run -c -l 20 #rofi -show run #dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -145,7 +146,7 @@ bindsym $mod+grave split h
 bindsym $mod+Tab split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+a fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 #ibindsym $mod+s layout stacking
@@ -153,13 +154,13 @@ bindsym $mod+t layout tabbed
 bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+f floating toggle
 
 # change focus between tiling / floating windows
-#bindsym $mod+space focus mode_toggle
+# bindsym $mod+Shift+d focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -236,25 +237,20 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+b bar mode toggle
 
-bindsym $mod+w border toggle 2 
+bindsym $mod+w exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'current_border_width\\":\K[0-9]+'` -eq 0 ]; then i3-msg border normal 2; else i3-msg border normal 0; fi"
 
-bindsym $mod+Shift+w exec i3-msg '[class=".*"] border toggle 2'
+bindsym $mod+Shift+w exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'current_border_width\\":\K[0-9]+'` -eq 0 ]; then i3-msg [class='.*'] border normal 2; else i3-msg [class='.*'] border normal 0; fi"
 
-bindsym $mod+Shift+t exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'current_border_width\\":\K[0-9]+'` -eq 0 ]; then i3-msg border normal 2; else i3-msg border normal 0; fi"
+#bindsym $mod+i exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'current_border_width\\":\K[0-9]+'` -eq 0 ]; then i3-msg border normal 2; else i3-msg border pixel 2; fi"
 
-#bindsym $mod+Shift+o exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'border\\":\\"normal+'` = 'border\":\"normal' ]; then i3-msg border pixel 2; else i3-msg border normal 2; fi"
+#bindsym $mod+Shift+i exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po '.*(},|\[)\K{.*?focused\\":true.*?}(?=(,{|\]))' | grep -Po 'current_border_width\\":\K[0-9]+'` -eq 0 ]; then i3-msg [class='.*'] border normal 2; else i3-msg [class='.*'] border pixel 2; fi"
 
-# bindsym $mod+Shift+b border toggle
+hide_edge_borders smart
 
-#hide_edge_borders smart
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
         modifier Mod1
         status_command i3status
-        #status_command ~/.config/i3/test.sh
-        # position top
+        #position top
         colors {
           background $color0
           statusline $color7
