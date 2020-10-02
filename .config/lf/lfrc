@@ -27,4 +27,5 @@ cmd open ${{
 
 cmd trash %trash-put $fx
 
-# set shell $SHELL
+set shell zsh
+set shellopts -i
