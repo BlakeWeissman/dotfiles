@@ -28,4 +28,4 @@ cmd open ${{
 cmd trash %trash-put $fx
 
 set shell zsh
-set shellopts -i
+# set shellopts -i

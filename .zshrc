@@ -65,6 +65,13 @@ lastbg() {
   xwallpaper --zoom "$(< "${HOME}/.cache/wal/wal")"
 }
 
+samedir() {
+  PID=$(xprop -id "$(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}')" | grep -m 1 PID | cut -d " " -f 3)
+  PID="$(pstree -lpA "$PID" | tail -n 1 | awk -F'---' '{print $NF}' | sed -re 's/[^0-9]//g')"
+  cd "$(readlink /proc/"$PID"/cwd)" || return 1
+  nohup "$TERMINAL" &
+}
+
 source ~/.bin/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.bin/zsh/zsh-system-clipboard/zsh-system-clipboard.zsh
 
