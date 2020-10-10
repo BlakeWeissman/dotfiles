@@ -4,6 +4,10 @@ Plug 'https://github.com/ap/vim-css-color'
 Plug 'dylanaraps/wal.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'chemzqm/vim-jsx-improve'
 
 call plug#end()
 
@@ -37,3 +41,5 @@ set clipboard=unnamedplus
 set number relativenumber
 
 syntax on
+
+set title
