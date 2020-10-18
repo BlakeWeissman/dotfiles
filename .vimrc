@@ -23,6 +23,11 @@ inoremap <silent><expr> <TAB>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+vnoremap p "0p
+vnoremap d "_d
+nnoremap x "_x
+nnoremap <del> "_x
+
 colorscheme wal
 
 set tabstop=2       " The width of a TAB is set to 4.
