@@ -2,13 +2,13 @@
 // it gets @if ed depending on $variant
 @import '../../.cache/wal/colors.scss';
 
-$base_color: if($variant =='light', #ffffff, #292929);
-$text_color: if($variant == 'light', black, white);
-$bg_color: if($variant =='light', #ededed, #393f3f);
-$fg_color: if($variant =='light', #2e3436, #eeeeec);
+$base_color: if($variant =='light', #ffffff, $color0);
+$text_color: if($variant == 'light', black, $color7);
+$bg_color: if($variant =='light', #ededed, $background);
+$fg_color: if($variant =='light', #2e3436, $foreground);
 
 $selected_fg_color: #ffffff;
-$selected_bg_color: if($variant == 'light', #4a90d9, darken(#4a90d9,20%));
+$selected_bg_color: if($variant == 'light', #4a90d9, darken($color2,20%));
 $selected_borders_color: if($variant=='light', darken($selected_bg_color, 30%),
                                                darken($selected_bg_color, 20%));
 $borders_color: if($variant =='light', darken($bg_color,30%), darken($bg_color,12%));
@@ -26,7 +26,7 @@ $destructive_color: if($variant =='light', #ef2929, darken(#ef2929,10%));
 
 $osd_fg_color: #eeeeec;
 $osd_text_color: white;
-$osd_bg_color: transparentize(#202526, 0.3);
+$osd_bg_color: transparentize($color0, 0.3);
 $osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%);
 $osd_borders_color: transparentize(black, 0.3);
