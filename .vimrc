@@ -29,6 +29,7 @@ inoremap <silent><expr> <TAB>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+vnoremap p "_dP
 vnoremap d "_d
 nnoremap x "_x
 nnoremap <del> "_x
