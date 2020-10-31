@@ -33,6 +33,8 @@ vnoremap p "_dP
 vnoremap d "_d
 nnoremap x "_x
 nnoremap <del> "_x
+vnoremap < <gv
+vnoremap > >gv
 
 colorscheme wal
 
