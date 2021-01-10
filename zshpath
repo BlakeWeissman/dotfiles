@@ -1,0 +1,3 @@
+path+=('/home/blake/.gem/ruby/2.7.0/bin')
+path+=('/home/blake/.yarn/bin')
+export PATH
