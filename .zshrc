@@ -45,6 +45,11 @@ alias lf='
 alias df='dotfiles'
 alias vim='nvim'
 alias alttabrice='alttab -d 2 -pk Left -nk Right -bg $(awk 'NR==1' ~/.cache/wal/colors) -fg $(awk 'NR==8' ~/.cache/wal/colors) -frame $(awk 'NR==3' ~/.cache/wal/colors)'
+alias sniff='grep --color --recursive'
+alias ytaudio='youtube-dl -f 140'
+alias mpvart='mpv --audio-display=no'
+alias ytaudioart='ytaudio --embed-thumbnail'
+alias gitstashshow='git stash show -p'
 
 bg() {
   wal -n -i "$@"
@@ -70,6 +75,18 @@ sd() {
   PID="$(pstree -lpA "$PID" | tail -n 1 | awk -F'---' '{print $NF}' | sed -re 's/[^0-9]//g')"
   cd "$(readlink /proc/"$PID"/cwd)" || return 1
   nohup "$TERMINAL" >/dev/null 2>&1 &
+}
+
+screencast() {
+  ffmpeg -y \
+  -f x11grab \
+  -framerate 60 \
+  -s "$(xdpyinfo | grep dimensions | awk '{print $2;}')" \
+  -i "$DISPLAY" \
+  -f alsa -i default \
+  -r 30 \
+  -c:v h264 -crf 0 -preset ultrafast -c:a aac \
+  "$HOME/files/screencasts/screencast-$(date '+%y%m%d-%H%M-%S').mp4"
 }
 
 source ~/.bin/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
