@@ -1,0 +1,4 @@
+set overlap
+set truncate
+set ignorecase
+set autobackup 1

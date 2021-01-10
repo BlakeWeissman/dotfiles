@@ -13,17 +13,22 @@ set color256 true
 # set shellopts -i
 
 cmd open ${{
-    case $(file --mime-type $f -b) in
-	image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*) $EDITOR $fx;;
-	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
-	image/png|image/jpg|image/jpeg|image/gif|image/webp|image/tif|image/ico) setsid -f sxiv $fx >/dev/null 2>&1 ;;
-	audio/*) mpv --audio-display=no $f ;;
-	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
-    esac
+  case $f in
+    *.csv) sc-im $f ;; 
+    *.sc) sc-im $f ;; 
+  esac
+  case $(file --mime-type $f -b) in
+    image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    text/*) $EDITOR $fx;;
+    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+    image/svg+xml) display -- $f ;;
+    image/png|image/jpg|image/jpeg|image/gif|image/webp|image/tif|image/ico) setsid -f sxiv $fx >/dev/null 2>&1 ;;
+    #text/CSV) setsid -f sc-im $fx >/dev/null 2>&1 ;;
+    audio/*) mpv --audio-display=no $f ;;
+    video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+    application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    #*) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+  esac
 }}
 cmd trash %trash-put $fx
 
